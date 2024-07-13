@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep Internetowy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Sklep Internetowy w65471</h1>
+    <nav>
+      <a href="index.html">Przeglądaj</a>
+      <a href="#addNewProduct">Dodaj ogłoszenie</a>
+      <a href="register.html">Rejestracja</a>
+      <a href="login.html">Logowanie</a>
+    </nav>
+  </header>
+
+  <div id="registrationForm" class="hidden">
+    <h2>Rejestracja</h2>
+    <form id="registerForm">
+      <label for="registerEmail">Email:</label>
+      <input type="email" id="registerEmail" required>
+      <br>
+      <label for="registerPassword">Hasło:</label>
+      <input type="password" id="registerPassword" required>
+      <br>
+      <button type="submit">Zarejestruj się</button>
+    </form>
+  </div>
+
+  <div id="loginForm" class="hidden">
+    <h2>Logowanie</h2>
+    <form id="loginForm">
+      <label for="loginEmail">Email:</label>
+      <input type="email" id="loginEmail" required>
+      <br>
+      <label for="loginPassword">Hasło:</label>
+      <input type="password" id="loginPassword" required>
+      <br>
+      <button type="submit">Zaloguj się</button>
+    </form>
+  </div>
+
+  <div id="loggedInSection" class="hidden">
+    <h2>Witaj, <span id="userEmail"></span>!</h2>
+    <button id="logoutButton">Wyloguj się</button>
+    <button id="viewHistory">Historia zakupów</button>
+  </div>
+
+  <div id="addNewProduct" class="hidden">
+    <form class="add">
+      <input type="text" name="name" placeholder="Nazwa" required><br>
+      <input type="text" name="description" placeholder="Opis" required><br>
+      <input type="number" name="price" placeholder="Cena" required><br>
+      <label for="category">Kategoria:<br>
+        <select name="category" required>
+          <option></option>
+          <option>Computer</option>
+          <option>Mobile</option>
+          <option>Computer peripherals</option>
+        </select>
+      <input type="number" name="quantity" placeholder="Ilość" required><br>
+      <button type="submit">Dodaj Produkt</button>
+    </form>
+  </div>
+
+  <div id="filters">
+    <label for="categoryFilter">Kategoria:</label>
+    <select id="categoryFilter">
+      <option value="all">Wszystkie</option>
+      <option value="Computer">Komputery</option>
+      <option value="Computer peripherals">Akcesoria komputerowe</option>3
+      <option value="Mobile">Telefony komórkowe</option>
+    </select>
+    
+    <label for="priceFilter">Cena:</label>
+    <select id="priceFilter">
+      <option value="all">Wszystkie</option>
+      <option value="low">0 - 50 PLN</option>
+      <option value="medium">51 - 100 PLN</option>
+      <option value="high">101+ PLN</option>
+    </select>
+    
+    <button id="applyFilters">Zastosuj filtry</button>
+  </div>
+
+  <button id="viewCart">Zobacz koszyk</button>
+  <button id="viewProducts" style="display: none;">Zobacz produkty</button>
+
+  <div id="productList"></div>
+  <div id="cart" style="display: none;"></div>
+  <div id="history" style="display: none;"></div>
+
+  <form class="delete">
+    <input type="text" name="id" placeholder="ID Produktu do usunięcia" required>
+    <button type="submit">Usuń Produkt</button>
+  </form>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
